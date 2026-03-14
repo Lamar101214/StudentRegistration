@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,31 +24,58 @@ namespace StudentRegistration
                 cmbDay.Items.Add("-Day-");
                 cmbMonth.Items.Add("-Month-");
                 cmbYear.Items.Add("-Year-");
-                
+                cmbProgram.Items.Add("-Program-");
 
+
+                String[] programs = new String[] {
+                 "Bachelor of Computer Engineering",
+                 "Bachelor of Computer Science",
+                 "Bachelor of Information System",
+                 "Bachelor of Information Technology"
+                };
+
+
+                String[] month = new String[]
+                {
+                "January",
+                "Febraury",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "Septemer",
+                "October",
+                "November",
+                "December"             
+                };
 
                 for (int day = 1; day <= 31; day++)
                 {
                     cmbDay.Items.Add(day);
                 }
 
-
-                for (int month = 1; month <= 12; month++)
+                foreach (String m in month)
                 {
-                    cmbMonth.Items.Add(month);
+                    cmbMonth.Items.Add(m);
                 }
 
-
                 int currentYear = DateTime.Now.Year;
-                for (int year = 1900; year <= currentYear; year++)
+                for (int year = 1950; year <= currentYear; year++)
                 {
                     cmbYear.Items.Add(year);
                 }
 
+                foreach (string p in programs)
+                {
+                    cmbProgram.Items.Add(p);
+                }
 
                 cmbDay.SelectedIndex = 0;
                 cmbMonth.SelectedIndex = 0;
                 cmbYear.SelectedIndex = 0;
+                cmbProgram.SelectedIndex = 0;
             }
         }
 
@@ -106,9 +133,17 @@ namespace StudentRegistration
                 return;
             }
 
+            if (cmbProgram.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please select a program.",
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             string day = cmbDay.SelectedItem.ToString();
             string month = cmbMonth.SelectedItem.ToString();
             string year = cmbYear.SelectedItem.ToString();
+        
 
             string gender = "";
             if (rbMale.Checked)
@@ -128,7 +163,8 @@ namespace StudentRegistration
             
             string message = "Student name: " + fullName + "\n"
                            + "Gender: " + gender + "\n"
-                           + "Date of birth: " + dateOfBirth;
+                           + "Date of birth: " + dateOfBirth
+                           + "\nProgram: " + cmbProgram.SelectedItem.ToString();
 
             MessageBox.Show(message);
         }
