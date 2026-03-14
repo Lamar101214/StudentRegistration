@@ -1,4 +1,4 @@
-﻿namespace StudentRegistration
+namespace StudentRegistration
 {
     partial class StudentRegistration
     {
@@ -44,6 +44,8 @@
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.Register = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbProgram = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -185,13 +187,32 @@
             // 
             // Register
             // 
-            this.Register.Location = new System.Drawing.Point(341, 376);
+            this.Register.Location = new System.Drawing.Point(341, 406);
             this.Register.Name = "Register";
             this.Register.Size = new System.Drawing.Size(125, 32);
             this.Register.TabIndex = 16;
             this.Register.Text = "REGISTER";
             this.Register.UseVisualStyleBackColor = true;
             this.Register.Click += new System.EventHandler(this.Register_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(146, 363);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(149, 15);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "PROGRAMS TO APPLY: ";
+            // 
+            // cmbProgram
+            // 
+            this.cmbProgram.FormattingEnabled = true;
+            this.cmbProgram.Location = new System.Drawing.Point(301, 361);
+            this.cmbProgram.Name = "cmbProgram";
+            this.cmbProgram.Size = new System.Drawing.Size(255, 21);
+            this.cmbProgram.TabIndex = 18;
             // 
             // StudentRegistration
             // 
@@ -200,6 +221,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cmbProgram);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.Register);
             this.Controls.Add(this.rbFemale);
             this.Controls.Add(this.rbMale);
@@ -240,6 +263,8 @@
         public System.Windows.Forms.ComboBox cmbDay;
         public System.Windows.Forms.ComboBox cmbMonth;
         public System.Windows.Forms.ComboBox cmbYear;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbProgram;
     }
 }
 
