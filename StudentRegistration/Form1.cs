@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,36 +29,26 @@ namespace StudentRegistration
                 cmbProgram.Items.Add("-Program-");
 
 
-                String[] programs = new String[] {
-                 "Bachelor of Computer Engineering",
-                 "Bachelor of Computer Science",
-                 "Bachelor of Information System",
-                 "Bachelor of Information Technology"
-                };
+                ArrayList programsList = new ArrayList();
+                programsList.Add("Bachelor of Computer Engineering");
+                programsList.Add("Bachelor of Computer Science");
+                programsList.Add("Bachelor of Information System");
+                programsList.Add("Bachelor of Information Technology");
+
+               
+                ArrayList monthList = new ArrayList();
+                monthList.AddRange(new string[] {
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"});
 
 
-                String[] month = new String[]
-                {
-                "January",
-                "Febraury",
-                "March",
-                "April",
-                "May",
-                "June",
-                "July",
-                "August",
-                "Septemer",
-                "October",
-                "November",
-                "December"             
-                };
 
                 for (int day = 1; day <= 31; day++)
                 {
                     cmbDay.Items.Add(day);
                 }
 
-                foreach (String m in month)
+                foreach (String m in monthList)
                 {
                     cmbMonth.Items.Add(m);
                 }
@@ -67,7 +59,7 @@ namespace StudentRegistration
                     cmbYear.Items.Add(year);
                 }
 
-                foreach (string p in programs)
+                foreach (string p in programsList)
                 {
                     cmbProgram.Items.Add(p);
                 }
