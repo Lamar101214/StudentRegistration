@@ -35,7 +35,7 @@ namespace StudentRegistration
                 programsList.Add("Bachelor of Information System");
                 programsList.Add("Bachelor of Information Technology");
 
-               
+
                 ArrayList monthList = new ArrayList();
                 monthList.AddRange(new string[] {
                 "January", "February", "March", "April", "May", "June",
@@ -71,7 +71,7 @@ namespace StudentRegistration
             }
         }
 
-             private void Register_Click(object sender, EventArgs e)
+        private void Register_Click(object sender, EventArgs e)
         {
 
             if (string.IsNullOrWhiteSpace(LastNametxt.Text))
@@ -135,7 +135,7 @@ namespace StudentRegistration
             string day = cmbDay.SelectedItem.ToString();
             string month = cmbMonth.SelectedItem.ToString();
             string year = cmbYear.SelectedItem.ToString();
-        
+
 
             string gender = "";
             if (rbMale.Checked)
@@ -149,10 +149,10 @@ namespace StudentRegistration
 
             string fullName = FirstNametxt.Text + " " + MiddleNametxt.Text + " " + LastNametxt.Text;
 
-           
+
             string dateOfBirth = day + "/" + month + "/" + year;
 
-            
+
             string message = "Student name: " + fullName + "\n"
                            + "Gender: " + gender + "\n"
                            + "Date of birth: " + dateOfBirth
@@ -160,9 +160,55 @@ namespace StudentRegistration
 
             MessageBox.Show(message);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp|All Files|*.*";
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show("File selected: " + openFileDialog1.FileName);
+
+                pictureBox1.ImageLocation = openFileDialog1.FileName;
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+        }
+
+        //overload 1
+        public void ShowStudentInfo(string firstName, string lastName)
+        {
+            MessageBox.Show("Student: " + firstName + " " + lastName);
+        }
+
+        //overlaoad 2
+        public void ShowStudentInfo(string firstName, string lastName, string program)
+        {
+            MessageBox.Show("Student: " + firstName + " " + lastName + "\nProgram: " + program);
+        }
+
+        //overload 3
+        public void ShowStudentInfo(string firstName, string lastName, string program, string date)
+        {
+            MessageBox.Show("Name: " + firstName + " " + lastName + "\nProgram: " + program + "\nBirthday: " + date);
+        }
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            // Collect data from your form controls
+            string fName = FirstNametxt.Text;
+            string lName = LastNametxt.Text;
+            string prog = cmbProgram.Text;
+            string bDay = cmbDay.Text + "/" + cmbMonth.Text + "/" + cmbYear.Text;
+
+          
+            ShowStudentInfo(fName, lName);
+            ShowStudentInfo(fName, lName, prog);
+            ShowStudentInfo(fName, lName, prog, bDay);
+
+               }
+
+          }
     }
-}
-
-
+        
 
         
